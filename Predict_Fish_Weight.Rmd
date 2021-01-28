@@ -1,6 +1,6 @@
 ---
 title: "Weight of Fish"
-author: "Your Name"
+author: "Dr K"
 date: "Year 2020"
 output: 
   html_document:
