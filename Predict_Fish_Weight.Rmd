@@ -19,7 +19,30 @@ require(tidyverse)
 ```
 
 # Predicting Fish Weight
+```{r}
+fish <- read.csv(file = "Fish.csv")
+```
 
+```{r eval=FALSE}
+ 
+fish <- fish %>%
+mutate(across(where(is.character), as.factor))
+levels(fish$Species)
+Bream <- filter(fish, Species == "Bream")
+Bream <- select(Bream, -Species) 
+Parkki <- filter(fish, Species == "Parkki")
+Parkki <- select(Parkki, -Species) 
+Perch <- filter(fish, Species == "Perch")
+Perch <- select(Perch, -Species) 
+Pike <- filter(fish, Species == "Pike")
+Pike <- select(Pike, -Species) 
+Roach <- filter(fish, Species == "Roach")
+Roach <- select(Roach, -Species) 
+Smelt <- filter(fish, Species == "Smelt")
+Smelt <- select(Smelt, -Species) 
+Whitefish <- filter(fish, Species == "Whitefisk")
+Whitefish <- select(Whitefish, -Species) 
+```
 
 ## Perch
 
