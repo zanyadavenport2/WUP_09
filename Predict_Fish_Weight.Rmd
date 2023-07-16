@@ -44,6 +44,9 @@ Whitefish <- filter(fish, Species == "Whitefish")
 Whitefish <- select(Whitefish, -Species) 
 ```
 
+# For each of the three species of fish listed below, determine the best regression model and also the best 2 element regression model. Use the BestSubset Regression helper file.
+
+
 ## Perch
 
 ### Best Models
