@@ -16,6 +16,8 @@ output:
 ```{r include=FALSE,echo=FALSE}
 require(tigerstats)
 require(tidyverse)
+require(car)
+require(leaps)
 ```
 
 # Predicting Fish Weight
@@ -23,7 +25,7 @@ require(tidyverse)
 fish <- read.csv(file = "Fish.csv")
 ```
 
-```{r eval=FALSE}
+```{r eval=TRUE}
  
 fish <- fish %>%
 mutate(across(where(is.character), as.factor))
