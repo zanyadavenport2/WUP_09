@@ -107,7 +107,27 @@ summary.lm(PIKE4)
 ## Roach
 
 ### Best Models
+```{r}
+library(leaps)
+regsubsets.out <-
+    regsubsets(Weight ~ .,
+               data = Roach,
+               nbest = 1,       # 1 best model for each number of predictors
+               nvmax = NULL,    # NULL for no limit on number of variables
+               force.in = NULL, force.out = NULL,
+               method = "exhaustive")
 
+summary.out <- summary(regsubsets.out)
+as.data.frame(summary.out$outmat)
+library(car)
+subsets(regsubsets.out,statistic="adjr2",legend="bottom",main="Adjusted R^2")
+```
 ### Best Two regressor model
+The best model and the best two regression model is Length3-Width with an adjusted R squared of 0.8482.
+
+```{r}
+Roach6<- lm(Weight~ .-Height-Length1-Length2 ,data=Roach)
+summary.lm(Roach6)
+```
 
 ## Final Summary Statements
