@@ -50,15 +50,49 @@ Whitefish <- select(Whitefish, -Species)
 
 
 ## Perch
-
 ### Best Models
+```{r}
+library(leaps)
+regsubsets.out <-
+    regsubsets(Weight ~ .,
+               data = Perch,
+               nbest = 1,       # 1 best model for each number of predictors
+               nvmax = NULL,    # NULL for no limit on number of variables
+               force.in = NULL, force.out = NULL,
+               method = "exhaustive")
 
+summary.out <- summary(regsubsets.out)
+as.data.frame(summary.out$outmat)
+library(car)
+subsets(regsubsets.out,statistic="adjr2",legend="bottom",main="Adjusted R^2")
+```
 ### Best Two regressor model
+For Perch the best two regression models is Height and Width. The over all best is also Height and Width with an adjusted R squared of 0.94
 
 
+```{r}
+MODL2 <- lm(Weight~ .-Length1-Length2-Length3 ,data=Perch)
+summary.lm(MODL2)
+```
 ## Pike
 
 ### Best Models
+
+```{r}
+library(leaps)
+regsubsets.out <-
+    regsubsets(Weight ~ .,
+               data = Pike,
+               nbest = 1,       # 1 best model for each number of predictors
+               nvmax = NULL,    # NULL for no limit on number of variables
+               force.in = NULL, force.out = NULL,
+               method = "exhaustive")
+
+summary.out <- summary(regsubsets.out)
+as.data.frame(summary.out$outmat)
+library(car)
+subsets(regsubsets.out,statistic="adjr2",legend="bottomright",main="Adjusted R^2")
+```
 
 ### Best Two regressor model
 
